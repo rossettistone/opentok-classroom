@@ -1,42 +1,3 @@
-var apiKey = "22546652";
-var sessionId = "2_MX4yMjU0NjY1Mn4xMjcuMC4wLjF-VHVlIEphbiAxNSAxODozMDoxMiBQU1QgMjAxM34wLjMyMzUxMzV-";
-var token = "T1==cGFydG5lcl9pZD0yMjU0NjY1MiZzaWc9MWY5NzY0NDRiOWEwNTQxYmZkMzc3Y2M1MzU4NDU2ZmQ1YjExMDcwYTpzZXNzaW9uX2lkPTJfTVg0eU1qVTBOalkxTW40eE1qY3VNQzR3TGpGLVZIVmxJRXBoYmlBeE5TQXhPRG96TURveE1pQlFVMVFnTWpBeE0zNHdMak15TXpVeE16Vi0mY3JlYXRlX3RpbWU9MTM1ODMwMzQzMiZleHBpcmVfdGltZT0xMzU4Mzg5ODMyJnJvbGU9cHVibGlzaGVyJm5vbmNlPTI4ODExMCZzZGtfdmVyc2lvbj10Yi1kYXNoYm9hcmQtamF2YXNjcmlwdC12MQ==";
-
-var session;
-var publisher;
-var subscribers = {};
-var VIDEO_WIDTH = 320;
-var VIDEO_HEIGHT = 240;
-
-TB.addEventListener("exception", exceptionHandler);
-
-// Un-comment the following to set automatic logging:
-// TB.setLogLevel(TB.DEBUG);
-
-if (TB.checkSystemRequirements() != TB.HAS_REQUIREMENTS) {
-  alert("You don't have the minimum requirements to run this application."
-      + "Please upgrade to the latest version of Flash.");
-} else {
-  session = TB.initSession(sessionId);  // Initialize session
-
-  // Add event listeners to the session
-  session.addEventListener('sessionConnected', sessionConnectedHandler);
-  session.addEventListener('sessionDisconnected', sessionDisconnectedHandler);
-  session.addEventListener('connectionCreated', connectionCreatedHandler);
-  session.addEventListener('connectionDestroyed', connectionDestroyedHandler);
-  session.addEventListener('streamCreated', streamCreatedHandler);
-  session.addEventListener('streamDestroyed', streamDestroyedHandler);
-}
-
-//--------------------------------------
-//  LINK CLICK HANDLERS
-//--------------------------------------
-
-/*
-If testing the app from the desktop, be sure to check the Flash Player Global Security setting
-to allow the page from communicating with SWF content loaded from the web. For more information,
-see http://www.tokbox.com/opentok/build/tutorials/helloworld.html#localTest
-*/
 function connect() {
   session.connect(apiKey, token);
 }
@@ -48,7 +9,6 @@ function disconnect() {
   hide('unpublishLink');
 }
 
-// Called when user wants to start publishing to the session
 function startPublishing() {
   if (!publisher) {
     var parentDiv = document.getElementById("myCamera");
@@ -72,10 +32,6 @@ function stopPublishing() {
   show('publishLink');
   hide('unpublishLink');
 }
-
-//--------------------------------------
-//  OPENTOK EVENT HANDLERS
-//--------------------------------------
 
 function sessionConnectedHandler(event) {
   // Subscribe to all streams currently in the Session
@@ -118,16 +74,12 @@ function connectionCreatedHandler(event) {
   // This signals new connections have been created.
 }
 
-/*
-If you un-comment the call to TB.setLogLevel(), above, OpenTok automatically displays exception event messages.
-*/
+
+// If you un-comment the call to TB.setLogLevel(), in opentok-setup.js, OpenTok automatically displays exception event messages.
+
 function exceptionHandler(event) {
   alert("Exception: " + event.code + "::" + event.message);
 }
-
-//--------------------------------------
-//  HELPER METHODS
-//--------------------------------------
 
 function addStream(stream) {
   // Check if this is the stream that I am publishing, and if so do not publish.
