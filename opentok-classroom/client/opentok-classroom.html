@@ -1,0 +1,30 @@
+<head>
+  <title>opentok-classroom</title>
+</head>
+
+<body>
+  {{> container}}
+</body>
+
+<template name="container">
+  <h1>Hello World!</h1>
+  {{greeting}}
+  <input type="button" value="Click" />
+  {{> opentok}}
+</template>
+
+
+<template name="opentok">
+  <div id="opentok_console"></div>
+  <div id="links">
+        <input type="button" value="Connect" id ="connectLink" onClick="javascript:connect()" />
+        <input type="button" value="Leave" id ="disconnectLink" onClick="javascript:disconnect()" />
+        <input type="button" value="Start Publishing" id ="publishLink" onClick="javascript:startPublishing()" />
+        <input type="button" value="Stop Publishing" id ="unpublishLink" onClick="javascript:stopPublishing()" />
+  </div>
+  <div id="myCamera" class="publisherContainer"></div>
+  <div id="subscribers"></div>
+  <script type="text/javascript" charset="utf-8">
+    show('connectLink');
+  </script>
+</template>
