@@ -1,20 +1,19 @@
-if (Meteor.isClient) {
-  // Template.container.greeting = function () {
-  //   return "Welcome to opentok-classroom.";
-  // };
+Template.classlistings.classrooms = function() {
+  return Classrooms.find({});
+};
 
-  Template.chatlogs.chatMessages = function() {
-    return Chat.find({});
+Template.newclassform.events({
+  'click input.btn' : function() {
+    var username = Meteor.user().username;
+    var roomname = document.getElementById("roomname").value;
+    Classrooms.insert({name: roomname, owner:username});
+    console.log("new room created")
   }
+});
 
-  Template.chatinput.events({
-    'click input.btn' : function() {
-      var username = Meteor.user().username;
-      var chatMessage = document.getElementById("chatbox").value;
-      var timestamp = moment(new Date()).fromNow();
-      console.log(chatMessage);
-      console.log(timestamp);
-      Chat.insert({user: username, message:chatMessage, timestamp:timestamp});
-    }
-  });
-}
+Template.classlistings.events({
+  'click div' : function() {
+    var roomname = this.name;
+    Session.set('roomClicked', roomname);
+  }
+});
