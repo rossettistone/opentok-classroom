@@ -8,10 +8,13 @@
 
 <template name="container">
   <h1>Hello World!</h1>
-  {{loginButtons align="right"}}
-  <input type="button" value="Click" />
-  {{> opentok}}
-  {{> chat}}
+  <div class="pull-right">
+    {{loginButtons align="right"}}
+  </div>
+  {{#if currentUser}}
+    {{> opentok}}
+    {{> chat}}
+  {{/if}}
 </template>
 
 
@@ -31,7 +34,24 @@
 </template>
 
 <template name="chat">
-  <div id="chatarea" class="well">
+  <div class="well">
+    {{> chatlogs}}
+    {{> chatinput}}
+  </div>
+</template>
+
+<template name="chatlogs">
+  <div>
+    {{#each chatMessages}}
+      <div>
+        <span>{{user}}:</span><span>{{message}}</span>
+      </div>
+    {{/each}}
+  </div>
+</template>
+
+<template name="chatinput">
+  <div>
     <form>
       <textarea id="chatbox" maxlength="500"></textarea>
       <input class="btn btn-primary" type="button" value="Submit"></input>
