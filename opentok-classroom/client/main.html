@@ -11,6 +11,7 @@
   {{loginButtons align="right"}}
   <input type="button" value="Click" />
   {{> opentok}}
+  {{> chat}}
 </template>
 
 
@@ -27,4 +28,13 @@
   <script type="text/javascript" charset="utf-8">
     show('connectLink');
   </script>
+</template>
+
+<template name="chat">
+  <div id="chatarea" class="well">
+    <form>
+      <textarea id="chatbox" maxlength="500"></textarea>
+      <input class="btn btn-primary" type="button" value="Submit"></input>
+    </form>
+  </div>
 </template>
