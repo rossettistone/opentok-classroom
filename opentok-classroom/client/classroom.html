@@ -1,6 +1,8 @@
 <template name="classroom">
-  {{> opentok}}
-  {{> chat}}
+  {{#if activeRoom}}
+    {{> opentok}}
+    {{> chat}}
+  {{/if}}
 </template>
 
 <template name="opentok">

@@ -1,5 +1,9 @@
 if (Meteor.isClient) {
 
+  Template.classroom.activeRoom = function () {
+    return (Session.get('roomClicked') === this._id)
+  }
+
   Template.chatlogs.chatMessages = function() {
     return Chat.find({});
   };

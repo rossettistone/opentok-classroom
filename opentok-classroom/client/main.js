@@ -1,3 +1,7 @@
+Template.container.classrooms = function() {
+  return Classrooms.find({});
+};
+
 Template.classlistings.classrooms = function() {
   return Classrooms.find({});
 };
@@ -7,13 +11,13 @@ Template.newclassform.events({
     var username = Meteor.user().username;
     var roomname = document.getElementById("roomname").value;
     Classrooms.insert({name: roomname, owner:username});
-    console.log("new room created")
   }
 });
 
 Template.classlistings.events({
   'click div' : function() {
-    var roomname = this.name;
-    Session.set('roomClicked', roomname);
+    var roomId = this._id;
+    console.log(this._id)
+    Session.set('roomClicked', roomId);
   }
 });

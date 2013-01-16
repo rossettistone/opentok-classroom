@@ -3,6 +3,10 @@
 </head>
 
 <body>
+  {{> container}}
+</body>
+
+<template name="container">
   <h1>Opentok Classrooms</h1>
   <div class="pull-right">
     {{loginButtons align="right"}}
@@ -11,8 +15,10 @@
     {{> classlistings}}
     {{> newclassform}}
   {{/if}}
-  {{> classroom}}
-</body>
+  {{#each classrooms}}
+    {{> classroom}}
+  {{/each}}
+</template>
 
 <template name="classlistings">
   <h3>Available Classes</h3>
