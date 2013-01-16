@@ -10,14 +10,13 @@ Template.newclassform.events({
   'click input.btn' : function() {
     var username = Meteor.user().username;
     var roomname = document.getElementById("roomname").value;
-    Classrooms.insert({name: roomname, owner:username});
+    Classrooms.insert({name: roomname, owner:username, chatlogs:[]});
   }
 });
 
 Template.classlistings.events({
   'click div' : function() {
     var roomId = this._id;
-    console.log(this._id)
     Session.set('roomClicked', roomId);
   }
 });
