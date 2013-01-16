@@ -1,0 +1,24 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Meteor Test Example</title>
+  <link rel="stylesheet" href="lib/mocha.css" />
+  <script src="./lib/jquery.js"></script>
+  <script src="./lib/mocha.js"></script>
+  <script src="./lib/chai.js"></script>
+  <!-- // <script src="./lib/sinon-1.4.2.js"></script> -->
+  <script>mocha.setup('bdd')</script>
+  <!-- This is the test -->
+  <script src="tests.js"></script>
+  <!-- This is the script being tested -->
+  <script src="../.meteor/local/build/main.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      mocha.run()
+    });
+  </script>
+</head>
+<body>
+  <div id="mocha"></div>
+</body>
+</html>
