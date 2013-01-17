@@ -1,7 +1,15 @@
 <template name="classroom">
   {{#if activeRoom}}
-    {{> opentok}}
-    {{> chat}}
+    <div class="row-fluid">
+      <div class="span7">
+        <span>This is where the reactive documents will go.</span>
+      </div>
+      <div class="offset7 span5">
+        {{> opentok}}
+        {{> chat}}
+      </div>
+      <input class="pull-right btn btn-primary" type="button" value="Leave Classroom"></input>
+    <div>
   {{/if}}
 </template>
 

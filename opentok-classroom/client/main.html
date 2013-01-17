@@ -7,17 +7,28 @@
 </body>
 
 <template name="container">
-  <h1>Opentok Classrooms</h1>
-  <div class="pull-right">
-    {{loginButtons align="right"}}
+  <div class="container-fluid">
+    <h1>Opentok Classrooms</h1>
+    <div class="pull-right">
+      {{loginButtons align="right"}}
+    </div>
+    {{#if currentUser}}
+      {{> classlistings}}
+      {{> newclassform}}
+    {{/if}}
+    {{#if inClass}}
+      {{#each classrooms}}
+        {{> classroom}}
+      {{/each}}
+    {{/if}}
   </div>
-  {{#if currentUser}}
-    {{> classlistings}}
-    {{> newclassform}}
-  {{/if}}
-  {{#each classrooms}}
-    {{> classroom}}
-  {{/each}}
+  {{> footer}}
+</template>
+
+<template name="footer">
+  <footer class="row-fluid span12">
+    This is the footer.
+  </footer>
 </template>
 
 <template name="classlistings">
