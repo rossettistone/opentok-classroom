@@ -1,1 +1,14 @@
 /* CSS declarations go here */
+
+.chatbox {
+  min-width: 300px;
+  min-height: 50px;
+}
+
+.classroom {
+  min-height: 500px;
+}
+
+.content {
+  margin-top: 50px;
+}

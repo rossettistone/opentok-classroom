@@ -1,7 +1,15 @@
 <template name="classroom">
   {{#if activeRoom}}
-    {{> opentok}}
-    {{> chat}}
+    <div class="row-fluid classroom">
+      <div class="span7">
+        <span>This is where the reactive documents will go.</span>
+      </div>
+      <div class="offset7 span5">
+        {{> opentok}}
+        {{> chat}}
+      </div>
+      <input class="pull-right btn btn-primary" type="button" value="Leave Classroom"></input>
+    <div>
   {{/if}}
 </template>
 
@@ -40,7 +48,7 @@
 <template name="chatinput">
   <div>
     <form>
-      <textarea id="chatbox" maxlength="500"></textarea>
+      <textarea id="chatbox" class="chatbox" maxlength="500"></textarea>
       <input class="btn btn-primary" type="button" value="Submit"></input>
     </form>
   </div>

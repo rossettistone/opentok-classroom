@@ -14,3 +14,9 @@ Template.chatinput.events({
     Classrooms.update({_id: this._id}, {$push: {chatlogs: {author: username, message: chatmessage}}});
   }
 });
+
+Template.classroom.events({
+  'click input.btn' : function() {
+    Session.set('roomClicked', undefined);
+  }
+});

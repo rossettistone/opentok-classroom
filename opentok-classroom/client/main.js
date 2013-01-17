@@ -1,10 +1,14 @@
-Template.container.classrooms = function() {
+Template.container.classrooms = function () {
   return Classrooms.find({});
 };
 
-Template.classlistings.classrooms = function() {
+Template.classlistings.classrooms = function () {
   return Classrooms.find({});
 };
+
+Template.container.inClass = function () {
+  return Session.get('roomClicked');
+}
 
 Template.newclassform.events({
   'click input.btn' : function() {
