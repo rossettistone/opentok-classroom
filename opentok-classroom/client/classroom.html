@@ -1,6 +1,6 @@
 <template name="classroom">
   {{#if activeRoom}}
-    <div class="row-fluid">
+    <div class="row-fluid classroom">
       <div class="span7">
         <span>This is where the reactive documents will go.</span>
       </div>
@@ -48,7 +48,7 @@
 <template name="chatinput">
   <div>
     <form>
-      <textarea id="chatbox" maxlength="500"></textarea>
+      <textarea id="chatbox" class="chatbox" maxlength="500"></textarea>
       <input class="btn btn-primary" type="button" value="Submit"></input>
     </form>
   </div>
