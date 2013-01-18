@@ -1,0 +1,1 @@
+coffee -w --join tests.js --compile .
