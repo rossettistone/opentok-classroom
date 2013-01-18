@@ -1,9 +1,9 @@
 Template.classroom.activeRoom = function () {
-  return (Session.get('roomClicked') === this._id)
-}
+  return (Session.get('roomClicked') === this._id);
+};
 
 Template.chatinput.events({
-  'click input.btn' : function() {
+  'click input.btn' : function () {
     var username = Meteor.user().username;
     var chatmessage = document.getElementById("chatbox").value;
     var timestamp = moment(new Date()).fromNow();
@@ -12,7 +12,7 @@ Template.chatinput.events({
 });
 
 Template.classroom.events({
-  'click input.btn' : function() {
+  'click input.leaveroom' : function () {
     Session.set('roomClicked', undefined);
   }
 });

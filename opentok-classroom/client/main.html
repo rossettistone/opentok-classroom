@@ -10,6 +10,9 @@
   <div class="container-fluid">
     <div class="content">
       {{> navbar}}
+      {{#unless currentUser}}
+        {{> welcomepage}}
+      {{/unless}}
       {{#if currentUser}}
         {{#unless inClass}}
           {{> classlistings}}
@@ -28,27 +31,41 @@
 
 <template name="navbar">
   <div class="navbar navbar-fixed-top">
-    <ul class="nav">
-      <li><a class="brand" href="">Opentok Classrooms</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-          Account
-          <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li>Dropdown</li>
-        </ul>
-      </li>
-    </ul>
-    <div class="pull-right">
-      {{loginButtons align="right"}}
+    <div class="navbar-inner">
+      <ul class="nav">
+        <a class="brand" href="">Opentok Classrooms</a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>Dropdown</li>
+          </ul>
+        </li>
+      </ul>
+      <a class="btn btn-link pull-right">
+        {{loginButtons align="right"}}
+      </a>
     </div>
+  </div>
+</template>
+
+<template name="welcomepage">
+  <div class="hero-unit">
+    <h1>Learn. Teach.</h1>
+    <p>From anyone. To anyone. Anywhere in the world.</p>
+    <p>
+      <a class="btn btn-primary btn-large">
+        Learn more
+      </a>
+    </p>
   </div>
 </template>
 
 <template name="footer">
   <footer class="row-fluid span12">
-    This is the footer.
+    <small>This is the footer.</small>
   </footer>
 </template>
 
@@ -56,7 +73,7 @@
   <h3>Available Classes</h3>
   {{#each classrooms}}
     <div><a class="classname" href='' >{{name}}</a></div>
-    <div><a class="classname" href='' >{{owner}}</a></div>
+    <small><a class="ownername" href='' >{{owner}}</a></small>
   {{/each}}
 </template>
 
