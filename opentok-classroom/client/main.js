@@ -10,6 +10,12 @@ Template.container.inClass = function () {
   return Session.get('roomClicked');
 }
 
+Template.container.events({
+  'click a' : function (e) {
+    e.preventDefault();
+  }
+})
+
 Template.newclassform.events({
   'click input.btn' : function() {
     var username = Meteor.user().username;
@@ -19,7 +25,7 @@ Template.newclassform.events({
 });
 
 Template.classlistings.events({
-  'click div' : function() {
+  'click a.classname' : function() {
     var roomId = this._id;
     Session.set('roomClicked', roomId);
   }

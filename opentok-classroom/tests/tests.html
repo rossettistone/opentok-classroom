@@ -11,12 +11,20 @@
   <!-- This is the test -->
   <script src="tests.js"></script>
   <!-- This is the script being tested -->
-  <script src="../.meteor/local/build/main.js"></script>
+  <script>
+    __meteor_runtime_config__ = {"ROOT_URL":"http://localhost:3000"};
+  </script>
+  <script src="../.meteor/local/build/static_cacheable/94029770dcadf660572d260d975467d8eb959991.js"></script>
   <script type="text/javascript">
     $(function(){
       mocha.run()
     });
   </script>
+  <style>
+    .container-fluid {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div id="mocha"></div>

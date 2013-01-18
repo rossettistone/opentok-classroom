@@ -2,10 +2,6 @@ Template.classroom.activeRoom = function () {
   return (Session.get('roomClicked') === this._id)
 }
 
-Template.chatlogs.chatMessages = function() {
-  return this.chatlogs;
-};
-
 Template.chatinput.events({
   'click input.btn' : function() {
     var username = Meteor.user().username;
