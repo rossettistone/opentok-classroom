@@ -52,9 +52,7 @@ Template.document.selected = function () {
 
 Template.documentView.selectedDocument = function () {
   var document_id = Session.get("document_id");
-  var selected = Documents.findOne({
-    _id: document_id
-  });
+  var selected = Documents.findOne({_id: document_id});
   if (selected) {
     $('#document-text').val(selected.text);
     return selected;
@@ -62,15 +60,9 @@ Template.documentView.selectedDocument = function () {
 };
 
 Template.documentView.events = {
-  'keyup #document-text': function(e) {
-    var sel = {
-      _id: Session.get("document_id")
-    };
-    var mod = {
-      $set: {
-        text: $('#document-text').val()
-      }
-    };
+  'keyup #document-text': function (e) {
+    var sel = {_id: Session.get("document_id")};
+    var mod = {$set: {text: $('#document-text').val()}};
     Documents.update(sel, mod);
   }
 };

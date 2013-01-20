@@ -37,3 +37,12 @@ div.OT_video-container {
   width: 480px;
   height: 360px;
 }
+
+.selected {
+  background-color: #A7BEEB;
+  border-radius: 4px 4px 0 0;
+}
+
+.selected:hover {
+  background-color: inherit;
+}
