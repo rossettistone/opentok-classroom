@@ -1,5 +1,18 @@
 /* CSS declarations go here */
 
+.sidebar-nav-fixed {
+  padding: 9px 0;
+  position:fixed;
+}
+
+.hero-unit {
+  padding-bottom: 100px;
+}
+
+.hero-image {
+  margin-right: 50px;
+}
+
 .chatcontainer {
   overflow: auto;
   height: 150px;

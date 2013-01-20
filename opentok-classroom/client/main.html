@@ -18,11 +18,11 @@
           {{> classlistings}}
           {{> newclassform}}
         {{/unless}}
-      {{/if}}
-      {{#if inClass}}
-        {{#each classrooms}}
-          {{> classroom}}
-        {{/each}}
+        {{#if inClass}}
+          {{#each classrooms}}
+            {{> classroom}}
+          {{/each}}
+        {{/if}}
       {{/if}}
     </div>
     {{> footer}}
@@ -34,14 +34,8 @@
     <div class="navbar-inner">
       <ul class="nav">
         <a class="brand" href="">Opentok Classrooms</a>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Account
-            <b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li>Dropdown</li>
-          </ul>
+        <li>
+          <a href="#"><i class="icon-user"></i> My Account</a>
         </li>
       </ul>
       <a class="btn btn-link pull-right">
@@ -52,15 +46,44 @@
 </template>
 
 <template name="welcomepage">
-  <div class="hero-unit">
-    <h1>Learn. Teach.</h1>
-    <p>From anyone. To anyone. Anywhere in the world.</p>
-    <p>
-      <a class="btn btn-primary btn-large">
-        Learn more
-      </a>
-    </p>
+  <div class="row-fluid span12">
+    <div class="span2">
+      <ul class="nav nav-list sidebar-nav-fixed">
+        <li class="active"><a href="#"><i class="icon-home icon-white"></i> Welcome</a></li>
+        <li><a href="#"><i class="icon-pencil"></i> What is OpenTok Classrooms?</a></li>
+        <li><a href="#"><i class="i"></i> How does it work?</a></li>
+        <li><a href="#"><i class="i"></i> Let's get started!</a></li>
+      </ul>
+    </div>
+    <div class="span10">
+      <div class="hero-unit">
+        <img class="hero-image pull-right" src="chalkboard-map.jpg" />
+        <h1>Learn. Teach.</h1>
+        <p>From anyone. To anyone. Anywhere in the world.</p>
+        <p>
+          <a class="btn btn-primary btn-large">
+            Sign Up <small>(free!)</small>
+          </a>
+          <a class="btn">
+            Learn more
+          </a>
+        </p>
+      </div>
+      {{> about}}
+    </div>
   </div>
+</template>
+
+<template name="about">
+  <section>
+    <h3>What is OpenTok Classrooms?</h3>
+  </section>
+  <section>
+    <h3>How does it work?</h3>
+  </section>
+  <section>
+    <h3>Let's get started!</h3>
+  </section>
 </template>
 
 <template name="footer">
@@ -78,10 +101,26 @@
 
 <template name="classlistings">
   <h3>Available Classes</h3>
-  {{#each classrooms}}
-    <div><a class="classname" href='' >{{name}}</a></div>
-    <small><a class="ownername" href='' >{{owner}}</a></small>
-  {{/each}}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Class Name</th>
+        <th>Teacher Name</th>
+        <th>Students Signed Up</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each classrooms}}
+      <tr>
+        <td><a class="classname" href='' >{{name}}</a></td>
+        <td><small><a class="ownername" href='' >{{owner}}</a></small></td>
+        <td>5</td>
+        <td>Open</td>
+      </tr>
+    {{/each}}
+    </tbody>
+  </table>
 </template>
 
 <template name="newclassform">
