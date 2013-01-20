@@ -14,7 +14,7 @@
 </template>
 
 <template name="opentok">
-  <div id="opentok_console" class="videobox well">
+  <div id="opentok_console" class="videobox well well-small">
     <div id="links">
           <input class="btn control-btn" type="button" value="Connect" id="connectLink" onClick="javascript:connect()" />
           <input class="btn control-btn" type="button" value="Leave" id="disconnectLink" onClick="javascript:disconnect()" />
@@ -30,7 +30,7 @@
 </template>
 
 <template name="chat">
-  <div class="well chatcontainer">
+  <div class="well well-small chatcontainer">
     {{> chatlogs}}
   </div>
   {{> chatinput}}
