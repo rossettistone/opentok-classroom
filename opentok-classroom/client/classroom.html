@@ -3,12 +3,12 @@
     <div class="row-fluid classroom">
       <div class="span7">
         {{> documents}}
+        <input class="pull-left btn btn-danger leaveroom" type="button" value="Leave Classroom"></input>
       </div>
       <div class="span5">
         {{> opentok}}
         {{> chat}}
       </div>
-      <input class="pull-right btn btn-danger leaveroom" type="button" value="Leave Classroom"></input>
     <div>
   {{/if}}
 </template>
@@ -47,7 +47,7 @@
 </template>
 
 <template name="chatinput">
-  <div class="well">
+  <div>
     <form>
       <textarea id="chatbox" class="chatbox" maxlength="500"></textarea>
       <input class="btn btn-primary" type="button" value="Submit"></input>

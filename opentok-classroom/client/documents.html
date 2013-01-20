@@ -5,24 +5,23 @@
 </template>
 
 <template name="documentList">
-  <div>
+  <ul class="nav nav-tabs">
     {{#each documents}}
       {{> document}}
     {{/each}}
-  </div>
-  <div id="createDocument">
-    Name: <input type="text" id="new-document-name" placeholder="New document" /><input class="btn" type="button" id="new-document" value="Create Doc"/>
-  </div>
+    <li id="createDocument">
+      <input class="navbar-form" type="text" id="new-document-name" placeholder="New document" /><input class="btn-link" type="button" id="new-document" value="Create Doc"/>
+    </li>
+  </ul>
 </template>
 
 <template name="document">
-  <div class="document {{selected}}">
-    <p>
+  <li class="document {{selected}}">
+    <a id="edit-document">
     {{ name }}
-    <input class="btn" type="button" id="edit-document" value="Edit"/>
-    <input class="btn" type="button" id="delete-document" value="Delete"/>
-    </p>
-   </div>
+    <input class="btn-link" type="button" id="delete-document" value="X"/>
+    </a>
+  </li>
 </template>
 
 <template name="documentView">
