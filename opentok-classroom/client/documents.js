@@ -59,10 +59,14 @@ Template.documentView.selectedDocument = function () {
   }
 };
 
-Template.documentView.events = {
+Template.documentView.events({
   'keyup #document-text': function (e) {
     var sel = {_id: Session.get("document_id")};
     var mod = {$set: {text: $('#document-text').val()}};
     Documents.update(sel, mod);
   }
+});
+
+Template.documentList.isTeacher = function () {
+  return Session.get('userRole') === 'teacher';
 };

@@ -16,3 +16,11 @@ Template.classroom.events({
     Session.set('roomClicked', undefined);
   }
 });
+
+Template.classroom.isTeacher = function () {
+  return Session.get('userRole') === 'teacher';
+};
+
+Template.teacherDashboard.numSubscribers = function () {
+  return _.size(subscribers);
+}
