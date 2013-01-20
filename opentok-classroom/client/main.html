@@ -10,20 +10,28 @@
   <div class="container-fluid">
     <div class="content">
       {{> navbar}}
+      {{#if recentSave}}
+        <div class="alert-success well-small">Changes saved!</div>
+      {{/if}}
       {{#unless currentUser}}
         {{> welcomepage}}
       {{/unless}}
-      {{#if currentUser}}
-        {{#unless inClass}}
-          {{> classlistings}}
-          {{> newclassform}}
-        {{/unless}}
-        {{#if inClass}}
-          {{#each classrooms}}
-            {{> classroom}}
-          {{/each}}
-        {{/if}}
+      {{#if openProfile}}
+        {{> profile}}
       {{/if}}
+      {{#unless openProfile}}
+        {{#if currentUser}}
+          {{#unless inClass}}
+            {{> classlistings}}
+            {{> newclassform}}
+          {{/unless}}
+          {{#if inClass}}
+            {{#each classrooms}}
+              {{> classroom}}
+            {{/each}}
+          {{/if}}
+        {{/if}}
+      {{/unless}}
     </div>
     {{> footer}}
   </div>
@@ -35,7 +43,7 @@
       <ul class="nav">
         <a class="brand" href="">Opentok Classrooms</a>
         <li>
-          <a href="#"><i class="icon-user"></i> My Account</a>
+          <a id="profilebutton" href="#"><i class="icon-user"></i> My Account</a>
         </li>
       </ul>
       <a class="btn btn-link pull-right">

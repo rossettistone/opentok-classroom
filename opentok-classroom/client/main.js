@@ -1,3 +1,17 @@
+Template.navbar.events({
+  'click #profilebutton' : function () {
+    Session.set('openProfile', true);
+  }
+})
+
+Template.container.openProfile = function () {
+  return Session.get("openProfile");
+};
+
+Template.container.recentSave = function () {
+  return Session.get('changesSaved');
+}
+
 Template.container.classrooms = function () {
   return Classrooms.find({});
 };
