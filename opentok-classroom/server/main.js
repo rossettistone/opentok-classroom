@@ -1,5 +1,8 @@
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+Meteor.startup(function () {
+  if (Documents.find().count() === 0) {
+  Documents.insert({
+    name: "Sample doc",
+    text: "Write here..."
   });
-}
+  }
+});
