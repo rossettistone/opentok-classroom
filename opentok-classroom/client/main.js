@@ -24,6 +24,10 @@ Template.container.inClass = function () {
   return Session.get('roomClicked');
 };
 
+Template.container.isTeacher = function () {
+  return Session.get('userRole') === 'teacher';
+}
+
 Template.container.events({
   'click a' : function (e) {
     e.preventDefault();

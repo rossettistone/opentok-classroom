@@ -26,10 +26,13 @@
 <template name="opentok">
   <div id="opentok_console" class="videobox well well-small">
     <div id="links">
-          <input class="btn control-btn" type="button" value="Connect" id="connectLink" onClick="javascript:connect()" />
-          <input class="btn control-btn" type="button" value="Leave" id="disconnectLink" onClick="javascript:disconnect()" />
-          <input class="btn control-btn" type="button" value="Start Publishing" id="publishLink" onClick="javascript:startPublishing()" />
-          <input class="btn control-btn" type="button" value="Stop Publishing" id="unpublishLink" onClick="javascript:stopPublishing()" />
+      {{connectStudent}}
+      {{#if isTeacher}}
+        <input class="btn control-btn" type="button" value="Connect" id="connectLink" onClick="javascript:connect()" />
+        <input class="btn control-btn" type="button" value="Disconnect" id="disconnectLink" onClick="javascript:disconnect()" />
+        <input class="btn control-btn" type="button" value="Start Publishing" id="publishLink" onClick="javascript:startPublishing()" />
+        <input class="btn control-btn" type="button" value="Stop Publishing" id="unpublishLink" onClick="javascript:stopPublishing()" />
+      {{/if}}
     </div>
     <div id="myCamera" class="publisherContainer"></div>
     <div id="subscribers"></div>

@@ -23,7 +23,9 @@
         {{#if currentUser}}
           {{#unless inClass}}
             {{> classlistings}}
-            {{> newclassform}}
+            {{#if isTeacher}}
+              {{> newclassform}}
+            {{/if}}
           {{/unless}}
           {{#if inClass}}
             {{#each classrooms}}
