@@ -1,8 +1,14 @@
 /* CSS declarations go here */
 
+.chatcontainer {
+  overflow: scroll;
+  height: 300px;
+  min-width: 400px
+}
+
 .chatbox {
-  min-width: 300px;
-  min-height: 50px;
+  min-width: 400px;
+  height: 50px;
 }
 
 .classroom {
@@ -15,4 +21,18 @@
 
 .selected {
   background-color: yellow;
+}
+
+.documentbox {
+  height: 400px;
+}
+
+.videobox {
+  min-height: 300px;
+  min-width: 400px
+}
+
+div.OT_video-container {
+  width: 480px;
+  height: 360px;
 }

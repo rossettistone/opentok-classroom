@@ -5,8 +5,8 @@ var token = "T1==cGFydG5lcl9pZD0yMjU0NjY1MiZzaWc9OTA5NjNmZTE1YzA5MWJkMTg2ZjM2Yjl
 var session;
 var publisher;
 var subscribers = {};
-var VIDEO_WIDTH = 320;
-var VIDEO_HEIGHT = 240;
+var VIDEO_WIDTH = 480;
+var VIDEO_HEIGHT = 360;
 
 TB.addEventListener("exception", exceptionHandler);
 

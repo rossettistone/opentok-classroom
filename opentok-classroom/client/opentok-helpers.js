@@ -4,9 +4,6 @@ function connect() {
 
 function disconnect() {
   session.disconnect();
-  hide('disconnectLink');
-  hide('publishLink');
-  hide('unpublishLink');
 }
 
 function startPublishing() {
@@ -94,7 +91,7 @@ function addStream(stream) {
 }
 
 function show(id) {
-  document.getElementById(id).style.display = 'block';
+  document.getElementById(id).style.display = 'inline';
 }
 
 function hide(id) {
