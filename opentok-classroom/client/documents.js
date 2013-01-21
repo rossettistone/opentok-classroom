@@ -1,21 +1,3 @@
-var DocumentsRouter = Backbone.Router.extend({
-  routes: {
-    ":document_id": "main"
-  },
-  main: function (document_id) {
-    Session.set("document_id", document_id);
-  },
-  setDocument: function (document_id) {
-    this.navigate(document_id, true);
-  }
-});
-
-var Router = new DocumentsRouter();
-
-Meteor.startup(function () {
-  Backbone.history.start({pushState: true});
-});
-
 Template.documentList.documents = function () {
   return Documents.find({classroom: this._id}, {sort: {name: 1}});
 };
@@ -38,7 +20,7 @@ Template.document.events = {
     return Documents.remove(this._id);
   },
   'click #edit-document': function (e) {
-    return Router.setDocument(this._id);
+    return Meteor.Router.to(this._id);
   }
 };
 

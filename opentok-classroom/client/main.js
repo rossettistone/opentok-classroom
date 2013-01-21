@@ -2,7 +2,7 @@ Handlebars.registerHelper("isTeacher", function() {
   if(Meteor.user().hasOwnProperty('profile')) {
     return Meteor.user().profile.role === 'teacher';
   } else {
-    return false
+    return false;
   }
 });
 

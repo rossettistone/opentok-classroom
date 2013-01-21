@@ -10,6 +10,5 @@ accounts-ui
 bootstrap
 accounts-password
 moment
-backbone
 stripe
 router
