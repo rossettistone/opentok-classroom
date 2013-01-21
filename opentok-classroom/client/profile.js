@@ -3,7 +3,7 @@ Template.profile.events({
     e.preventDefault();
 
     var newRole = document.getElementById('input01').value;
-    Session.set('userRole', newRole)
+    Meteor.call('setRole', Meteor.userId(), newRole)
 
     Session.set('changesSaved', true);
     Meteor.setTimeout(function () {

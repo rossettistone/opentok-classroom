@@ -13,7 +13,6 @@ Meteor.startup(function () {
 
 Meteor.methods({
   setRole: function (user_id, newRole) {
-    Meteor.users.update({_id: user_id}, {$set: {role: newRole}});
-    console.log(Meteor.users.find({_id: user_id}).fetch());
+    Meteor.users.update({_id: user_id}, {$set: {profile: {role: newRole}}});
   }
 });

@@ -18,7 +18,11 @@ Template.classroom.events({
 });
 
 Template.classroom.isTeacher = function () {
-  return Session.get('userRole') === 'teacher';
+    if(Meteor.user().hasOwnProperty('profile')) {
+    return Meteor.user().profile.role === 'teacher';
+  } else {
+    return false
+  }
 };
 
 Template.teacherDashboard.numSubscribers = function () {

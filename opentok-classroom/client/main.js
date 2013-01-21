@@ -5,7 +5,7 @@ Template.navbar.events({
 });
 
 Template.container.openProfile = function () {
-  return Meteor.user() && (Session.get('openProfile') || !Session.get('userRole'));
+  return Meteor.user() && Session.get('openProfile');
 };
 
 Template.container.recentSave = function () {
@@ -25,7 +25,11 @@ Template.container.inClass = function () {
 };
 
 Template.container.isTeacher = function () {
-  return Session.get('userRole') === 'teacher';
+  if(Meteor.user().hasOwnProperty('profile')) {
+    return Meteor.user().profile.role === 'teacher';
+  } else {
+    return false
+  }
 }
 
 Template.container.events({
