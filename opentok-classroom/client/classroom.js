@@ -21,6 +21,7 @@ Template.chatinput.events({
 Template.classroom.events({
   'click input.leaveroom' : function () {
     Session.set('roomClicked', undefined);
+    Meteor.Router.to('/classrooms')
   }
 });
 

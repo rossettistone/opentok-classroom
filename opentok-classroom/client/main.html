@@ -13,6 +13,9 @@
       {{#if recentSave}}
         <div class="alert-success well well-small">Changes saved!</div>
       {{/if}}
+      {{#if openProfile}}
+        {{> profile}}
+      {{/if}}
       {{renderPage}}
       {{#if currentUser}}
         {{#if inClass}}
@@ -33,10 +36,10 @@
         <a class="brand" href="/welcome">Opentok Classrooms</a>
         {{#if currentUser}}
           <li>
-            <a id="profilebutton" href="./classrooms"><i class="icon-user"></i> Classrooms</a>
+            <a href="/classrooms"><i class="icon-user"></i> Classrooms</a>
           </li>
           <li>
-            <a id="profilebutton" href="./profile"><i class="icon-user"></i> My Account</a>
+            <a id="profilebutton" ><i class="icon-user"></i> My Account</a>
           </li>
         {{/if}}
       </ul>
@@ -150,3 +153,14 @@
     </form>
   </div>
 </template>
+
+<template name="not_found">
+  <div class="hero-unit">
+    <img class="hero-image pull-right" src="chalkboard-map.jpg" />
+    <h1>404</h1>
+    <p>You have ventured into the wilds of the internet.</p>
+    <p>It is pitch black. You are likely to be eaten by a grue.</p>
+    <small>Seriously, though, it seems we couldn't find what you were looking for.</small>
+  </div>
+</template>
+

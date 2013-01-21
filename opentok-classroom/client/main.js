@@ -6,6 +6,10 @@ Handlebars.registerHelper("isTeacher", function() {
   }
 });
 
+Handlebars.registerHelper("openProfile", function() {
+  return Session.get('openProfile');
+});
+
 Template.container.recentSave = function () {
   return Session.get('changesSaved');
 };
@@ -32,7 +36,12 @@ Template.newclassform.events({
 
 Template.classrooms.events({
   'click a.classname' : function () {
-    var roomId = this._id;
-    Session.set('roomClicked', roomId);
+    Meteor.Router.to('/classrooms/' + this._id);
+  }
+});
+
+Template.navbar.events({
+  'click #profilebutton' : function () {
+    Session.set('openProfile', true);
   }
 });
