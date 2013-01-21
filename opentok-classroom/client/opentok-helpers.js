@@ -15,8 +15,6 @@ function startPublishing() {
     var publisherProps = {width: SELF_WIDTH, height: SELF_HEIGHT};
     publisher = TB.initPublisher(apiKey, publisherDiv.id, publisherProps);  // Pass the replacement div id and properties
     session.publish(publisher);
-    show('unpublishLink');
-    hide('publishLink');
   }
 }
 
@@ -26,8 +24,6 @@ function stopPublishing() {
   }
   publisher = null;
 
-  show('publishLink');
-  hide('unpublishLink');
 }
 
 function sessionConnectedHandler(event) {
@@ -35,9 +31,7 @@ function sessionConnectedHandler(event) {
   for (var i = 0; i < event.streams.length; i++) {
     addStream(event.streams[i]);
   }
-  show('disconnectLink');
-  show('publishLink');
-  hide('connectLink');
+  
 }
 
 function streamCreatedHandler(event) {
@@ -57,10 +51,6 @@ function sessionDisconnectedHandler(event) {
   // will automatically be removed. This default behaviour can be prevented using event.preventDefault()
   publisher = null;
 
-  show('connectLink');
-  hide('disconnectLink');
-  hide('publishLink');
-  hide('unpublishLink');
 }
 
 function connectionDestroyedHandler(event) {

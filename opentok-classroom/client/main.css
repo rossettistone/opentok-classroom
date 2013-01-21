@@ -1,8 +1,12 @@
 /* CSS declarations go here */
 
+.publisherContainer {
+  display: inline;
+}
+
 .sidebar-nav-fixed {
   padding: 9px 0;
-  position:fixed;
+  position: fixed;
 }
 
 .hero-unit {

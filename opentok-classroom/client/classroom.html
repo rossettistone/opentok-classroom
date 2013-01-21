@@ -29,11 +29,15 @@
 
 <template name="opentokstudent">
   <div id="opentok_console" class="videobox well well-small">
-    <div id="links">
-      {{connectStudent}}
+    {{autoConnect}}
+    <div>
+      <h5>Teacher</h5>
+      <div id="subscribers"></div>
     </div>
-    <div id="myCamera" class="publisherContainer"></div>
-    <div id="subscribers"></div>
+    <div>
+      <h5>Your Camera</h5>
+      <div id="myCamera" class="publisherContainer"></div>
+    </div>
     <script type="text/javascript" charset="utf-8">
       show('connectLink');
     </script>
@@ -43,13 +47,18 @@
 <template name="opentokteacher">
   <div id="opentok_console" class="videobox well well-small">
     <div id="links">
-      <input class="btn control-btn" type="button" value="Connect" id="connectLink" onClick="javascript:connect()" />
-      <input class="btn control-btn" type="button" value="Disconnect" id="disconnectLink" onClick="javascript:disconnect()" />
-      <input class="btn control-btn" type="button" value="Start Publishing" id="publishLink" onClick="javascript:startPublishing()" />
-      <input class="btn control-btn" type="button" value="Stop Publishing" id="unpublishLink" onClick="javascript:stopPublishing()" />
+      {{autoConnect}}
+      <input class="btn control-btn" type="button" value="Start Broadcasting" id="publishLink" onClick="javascript:startPublishing()" />
+      <input class="btn control-btn" type="button" value="Stop Broadcasting" id="unpublishLink" onClick="javascript:stopPublishing()" />
     </div>
-    <div id="myCamera" class="publisherContainer"></div>
-    <div id="subscribers"></div>
+    <div>
+      <h5>Students</h5>
+      <div id="subscribers"></div>
+    </div>
+    <div>
+      <h5>Your Camera</h5>
+      <div id="myCamera" class="publisherContainer"></div>
+    </div>
     <script type="text/javascript" charset="utf-8">
       show('connectLink');
     </script>

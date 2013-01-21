@@ -25,11 +25,16 @@ Template.teacherDashboard.numSubscribers = function () {
   return _.size(subscribers);
 };
 
-Template.opentokstudent.connectStudent = function () {
-  if (Session.get('userRole') === 'student') {
-    connect();
-    Meteor.setTimeout(function () {
-      startPublishing();
-    }, 1 * 1000);
-  }
+Template.opentokstudent.autoConnect = function () {
+  connect();
+  Meteor.setTimeout(function () {
+    startPublishing();
+  }, 1 * 1000);
+};
+
+Template.opentokteacher.autoConnect = function () {
+  connect();
+  Meteor.setTimeout(function () {
+    startPublishing();
+  }, 1 * 1000);
 };
