@@ -1,3 +1,11 @@
+Handlebars.registerHelper("isTeacher", function() {
+  if(Meteor.user().hasOwnProperty('profile')) {
+    return Meteor.user().profile.role === 'teacher';
+  } else {
+    return false
+  }
+});
+
 Template.navbar.events({
   'click #profilebutton' : function () {
     Session.set('openProfile', true);
@@ -23,14 +31,6 @@ Template.classlistings.classrooms = function () {
 Template.container.inClass = function () {
   return Session.get('roomClicked');
 };
-
-Template.container.isTeacher = function () {
-  if(Meteor.user().hasOwnProperty('profile')) {
-    return Meteor.user().profile.role === 'teacher';
-  } else {
-    return false
-  }
-}
 
 Template.container.events({
   'click a' : function (e) {

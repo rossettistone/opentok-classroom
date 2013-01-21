@@ -1,3 +1,10 @@
+Handlebars.registerHelper("autoConnect", function() {
+  connect();
+  Meteor.setTimeout(function () {
+    startPublishing();
+  }, 1 * 1000);
+});
+
 Template.classroom.activeRoom = function () {
   return (Session.get('roomClicked') === this._id);
 };
@@ -17,28 +24,6 @@ Template.classroom.events({
   }
 });
 
-Template.classroom.isTeacher = function () {
-    if(Meteor.user().hasOwnProperty('profile')) {
-    return Meteor.user().profile.role === 'teacher';
-  } else {
-    return false
-  }
-};
-
 Template.teacherDashboard.numSubscribers = function () {
   return _.size(subscribers);
-};
-
-Template.opentokstudent.autoConnect = function () {
-  connect();
-  Meteor.setTimeout(function () {
-    startPublishing();
-  }, 1 * 1000);
-};
-
-Template.opentokteacher.autoConnect = function () {
-  connect();
-  Meteor.setTimeout(function () {
-    startPublishing();
-  }, 1 * 1000);
 };

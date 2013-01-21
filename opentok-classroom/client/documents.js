@@ -66,11 +66,3 @@ Template.documentView.events({
     Documents.update(sel, mod);
   }
 });
-
-Template.documentList.isTeacher = function () {
-    if(Meteor.user().hasOwnProperty('profile')) {
-    return Meteor.user().profile.role === 'teacher';
-  } else {
-    return false
-  }
-};
