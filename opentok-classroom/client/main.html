@@ -13,27 +13,14 @@
       {{#if recentSave}}
         <div class="alert-success well well-small">Changes saved!</div>
       {{/if}}
-      {{#unless currentUser}}
-        {{> welcomepage}}
-      {{/unless}}
-      {{#if openProfile}}
-        {{> profile}}
-      {{/if}}
-      {{#unless openProfile}}
-        {{#if currentUser}}
-          {{#unless inClass}}
-            {{> classlistings}}
-            {{#if isTeacher}}
-              {{> newclassform}}
-            {{/if}}
-          {{/unless}}
-          {{#if inClass}}
-            {{#each classrooms}}
-              {{> classroom}}
-            {{/each}}
-          {{/if}}
+      {{renderPage}}
+      {{#if currentUser}}
+        {{#if inClass}}
+          {{#each classrooms}}
+            {{> classroom}}
+          {{/each}}
         {{/if}}
-      {{/unless}}
+      {{/if}}
     </div>
     {{> footer}}
   </div>
@@ -43,10 +30,13 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <ul class="nav">
-        <a class="brand" href="">Opentok Classrooms</a>
+        <a class="brand" href="/welcome">Opentok Classrooms</a>
         {{#if currentUser}}
           <li>
-            <a id="profilebutton" href="#"><i class="icon-user"></i> My Account</a>
+            <a id="profilebutton" href="./classrooms"><i class="icon-user"></i> Classrooms</a>
+          </li>
+          <li>
+            <a id="profilebutton" href="./profile"><i class="icon-user"></i> My Account</a>
           </li>
         {{/if}}
       </ul>
@@ -57,7 +47,7 @@
   </div>
 </template>
 
-<template name="welcomepage">
+<template name="welcome">
   <div class="row-fluid span12">
     <div class="span2">
       <ul class="nav nav-list sidebar-nav-fixed">
@@ -125,7 +115,7 @@
   </footer>
 </template>
 
-<template name="classlistings">
+<template name="classrooms">
   <h3>Available Classes</h3>
   <table class="table table-hover">
     <thead>
@@ -147,6 +137,9 @@
     {{/each}}
     </tbody>
   </table>
+  {{#if isTeacher}}
+    {{> newclassform}}
+  {{/if}}
 </template>
 
 <template name="newclassform">

@@ -9,10 +9,11 @@ Template.profile.events({
     Meteor.setTimeout(function () {
       Session.set('changesSaved', false);
     }, 5 * 1000);
-    Session.set('openProfile', false);
+    Meteor.Router.to('/welcome');
   },
   'click button.exit' : function (e) {
     e.preventDefault();
     Session.set('openProfile', false);
+    Meteor.Router.to('/welcome');
   }
 });

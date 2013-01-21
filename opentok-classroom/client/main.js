@@ -6,16 +6,6 @@ Handlebars.registerHelper("isTeacher", function() {
   }
 });
 
-Template.navbar.events({
-  'click #profilebutton' : function () {
-    Session.set('openProfile', true);
-  }
-});
-
-Template.container.openProfile = function () {
-  return Meteor.user() && Session.get('openProfile');
-};
-
 Template.container.recentSave = function () {
   return Session.get('changesSaved');
 };
@@ -24,19 +14,13 @@ Template.container.classrooms = function () {
   return Classrooms.find({});
 };
 
-Template.classlistings.classrooms = function () {
+Template.classrooms.classrooms = function () {
   return Classrooms.find({});
 };
 
 Template.container.inClass = function () {
   return Session.get('roomClicked');
 };
-
-Template.container.events({
-  'click a' : function (e) {
-    e.preventDefault();
-  }
-});
 
 Template.newclassform.events({
   'click input.btn' : function () {
@@ -46,7 +30,7 @@ Template.newclassform.events({
   }
 });
 
-Template.classlistings.events({
+Template.classrooms.events({
   'click a.classname' : function () {
     var roomId = this._id;
     Session.set('roomClicked', roomId);
