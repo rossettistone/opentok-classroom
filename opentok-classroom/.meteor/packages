@@ -11,3 +11,4 @@ bootstrap
 accounts-password
 moment
 backbone
+stripe

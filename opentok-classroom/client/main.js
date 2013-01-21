@@ -5,7 +5,7 @@ Template.navbar.events({
 });
 
 Template.container.openProfile = function () {
-  return Session.get('openProfile') || !Session.get('userRole');
+  return Meteor.user() && (Session.get('openProfile') || !Session.get('userRole'));
 };
 
 Template.container.recentSave = function () {

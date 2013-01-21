@@ -44,9 +44,11 @@
     <div class="navbar-inner">
       <ul class="nav">
         <a class="brand" href="">Opentok Classrooms</a>
-        <li>
-          <a id="profilebutton" href="#"><i class="icon-user"></i> My Account</a>
-        </li>
+        {{#if currentUser}}
+          <li>
+            <a id="profilebutton" href="#"><i class="icon-user"></i> My Account</a>
+          </li>
+        {{/if}}
       </ul>
       <a class="btn btn-link pull-right">
         {{loginButtons align="right"}}
@@ -62,7 +64,6 @@
         <li class="active"><a href="#"><i class="icon-home icon-white"></i> Welcome</a></li>
         <li><a href="#"><i class="icon-pencil"></i> What is OpenTok Classrooms?</a></li>
         <li><a href="#"><i class="i"></i> How does it work?</a></li>
-        <li><a href="#"><i class="i"></i> Let's get started!</a></li>
       </ul>
     </div>
     <div class="span10">
@@ -87,12 +88,27 @@
 <template name="about">
   <section>
     <h3>What is OpenTok Classrooms?</h3>
+    <h5>Students</h5>
+    <p>OpenTok Classrooms is a way for students around the world to find and study with the best teachers available. Want to learn a foreign language? Get a foreign teacher! Want to discuss Russian politics? Speak with a Russian!</p>
+
+    <h5>Teachers</h5>
+    <p>Whatever your special skill or knowledge, there are people out there looking to learn. OpenTok classrooms gives you the tools to attract students and teach remotely.</p>
+
+    <h5>Classrooms come ready with:</h5>
+      <ul>
+        <li>Video chat</li>
+        <li>Interactive documents that you and the teacher can edit collaboratively</li>
+      </ul>
   </section>
   <section>
     <h3>How does it work?</h3>
-  </section>
-  <section>
-    <h3>Let's get started!</h3>
+    <h5>Students</h5>
+    Create an account to check out the current class listings, then contact teachers for subjects that interest you. Pick a time to meet online, then show up for class and start learning!
+    <p></p>
+    <h5>Teachers</h5>
+    <p>It takes just a few clicks to set up your very own classroom. Arrange a time to meet with students, then log on at the same time to study!</p>
+    <br>
+    <br>
   </section>
 </template>
 

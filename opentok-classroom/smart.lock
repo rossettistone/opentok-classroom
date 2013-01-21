@@ -7,7 +7,8 @@
   "dependencies": {
     "basePackages": {
       "moment": {},
-      "node-modules": {}
+      "node-modules": {},
+      "stripe": {}
     },
     "packages": {
       "moment": {
@@ -19,6 +20,11 @@
         "git": "https://github.com/possibilities/meteor-node-modules.git",
         "tag": "v0.0.5",
         "commit": "d502e5091759073a6baed856fadd93012749842d"
+      },
+      "stripe": {
+        "git": "https://github.com/appleifreak/stripe-meteor.git",
+        "tag": "v1.0.0",
+        "commit": "152de8922a7e0f3d1d131ef457d566f8654c0743"
       }
     }
   }

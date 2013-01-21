@@ -1,6 +1,7 @@
 {
   "packages": {
     "moment": {},
-    "node-modules": {}
+    "node-modules": {},
+    "stripe": {}
   }
 }
