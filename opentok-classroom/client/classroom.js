@@ -7,7 +7,7 @@ Template.chatinput.events({
     var username = Meteor.user().username;
     var chatmessage = document.getElementById("chatbox").value;
     var timestamp = moment(new Date()).fromNow();
-    Classrooms.update({_id: this._id}, {$push: {chatlogs: {author: username, message: chatmessage}}});
+    Classrooms.update({_id: this._id}, {$push: {chatlogs: {author: username, message: chatmessage, createdat: timestamp}}});
   }
 });
 
@@ -25,15 +25,11 @@ Template.teacherDashboard.numSubscribers = function () {
   return _.size(subscribers);
 };
 
-Template.opentok.isTeacher = function () {
-  return Session.get('userRole') === 'teacher';
-};
-
-Template.opentok.connectStudent = function () {
+Template.opentokstudent.connectStudent = function () {
   if (Session.get('userRole') === 'student') {
     connect();
     Meteor.setTimeout(function () {
       startPublishing();
     }, 1 * 1000);
   }
-}
+};

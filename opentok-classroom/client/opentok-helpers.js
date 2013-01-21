@@ -12,7 +12,7 @@ function startPublishing() {
     var publisherDiv = document.createElement('div'); // Create a div for the publisher to replace
     publisherDiv.setAttribute('id', 'opentok_publisher');
     parentDiv.appendChild(publisherDiv);
-    var publisherProps = {width: VIDEO_WIDTH, height: VIDEO_HEIGHT};
+    var publisherProps = {width: SELF_WIDTH, height: SELF_HEIGHT};
     publisher = TB.initPublisher(apiKey, publisherDiv.id, publisherProps);  // Pass the replacement div id and properties
     session.publish(publisher);
     show('unpublishLink');
@@ -86,7 +86,7 @@ function addStream(stream) {
   var subscriberDiv = document.createElement('div'); // Create a div for the subscriber to replace
   subscriberDiv.setAttribute('id', stream.streamId); // Give the replacement div the id of the stream as its id.
   document.getElementById("subscribers").appendChild(subscriberDiv);
-  var subscriberProps = {width: VIDEO_WIDTH, height: VIDEO_HEIGHT};
+  var subscriberProps = {width: SUBSCRIBERS_WIDTH, height: SUBSCRIBERS_HEIGHT};
   subscribers[stream.streamId] = session.subscribe(stream, subscriberDiv.id, subscriberProps);
 }
 
