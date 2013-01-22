@@ -2,7 +2,7 @@ Template.documentList.documents = function () {
   return Documents.find({classroom: this._id}, {sort: {name: 1}});
 };
 
-Template.documentList.events = {
+Template.documentList.events({
   'click #new-document': function (e) {
     var name = $('#new-document-name').val();
     if (name) {
@@ -13,16 +13,16 @@ Template.documentList.events = {
       });
     }
   }
-};
+});
 
-Template.document.events = {
+Template.document.events({
   'click #delete-document': function (e) {
     return Documents.remove(this._id);
   },
   'click #edit-document': function (e) {
     return Meteor.Router.to(this._id);
   }
-};
+});
 
 Template.document.selected = function () {
   if (Session.equals("document_id", this._id)) {

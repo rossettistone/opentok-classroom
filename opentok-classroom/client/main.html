@@ -60,16 +60,23 @@
 </template>
 
 <template name="welcome">
-  <div class="row-fluid span12">
+  <div class="row-fluid">
     <div class="span9">
       <div class="hero-unit">
         <img class="hero-image pull-right" src="chalkboard-map.jpg" />
         <h1 class="brandfont">Learn. Teach.</h1>
         <p>From anyone. To anyone. Anywhere in the world.</p>
         <p>
+          {{#unless currentUser}}
           <a class="btn btn-primary btn-large signup">
             Sign Up <small>(free!)</small>
           </a>
+          {{/unless}}
+          {{#if currentUser}}
+          <a class="btn btn-primary btn-large gotoclass">
+            See Classrooms
+          </a>
+          {{/if}}
         </p>
       </div>
       {{> about}}
@@ -78,9 +85,10 @@
       <div class="alert-info well sidebar-nav">
         <ul class="nav nav-list">
           <li class="nav-header">How To Begin</li>
-          <li><p>Helpful advice on how the current page works.</p></li>
+          <li><p>Create an account by clicking on the 'Sign In' button above.</p>
+            <p>Your new account will start as a 'student', but you can switch to 'teacher' mode by clicking on the 'Account' button on the navbar after you sign in.</p></li>
           <li class="nav-header">Next Steps</li>
-          <li><p>Some suggestions on where to go next.</p></li>
+          <li><p>Once you have an account, you'll be able to view available classes and begin learning. If you switch to 'teacher' mode ('Account' button on navbar), you can create classes for others to attend.</p></li>
           <li class="nav-header">Need Help?</li>
           <li><p>Something feel broken? Contact us on twitter at @rossetti211, and we'll see what we can do to help.</p></li>
         </ul>
@@ -111,7 +119,7 @@
 </template>
 
 <template name="footer">
-  <footer class="row-fluid span12">
+  <footer class="row-fluid">
     <div class="navbar navbar-fixed-bottom">
     <div class="navbar-inner">
       <ul class="nav pull-right">

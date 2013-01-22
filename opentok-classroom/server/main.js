@@ -4,7 +4,6 @@ Meteor.startup(function () {
 
   var allUsers = Meteor.users.find({}).fetch()
   _.each(allUsers, function (user, key, object) {
-    console.log(user)
     if(!user.role) {
       Meteor.users.update({_id: user._id}, {$set: {role: 'student'}});
     }

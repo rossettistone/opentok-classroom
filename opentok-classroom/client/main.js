@@ -28,8 +28,10 @@ Template.container.inClass = function () {
 
 Template.welcome.events({
   'click .signup' : function () {
-    console.log("fired")
     $("#login-sign-in-link")[0].click();
+  },
+  'click .gotoclass' : function () {
+    Meteor.Router.to('/classrooms');
   }
 });
 
