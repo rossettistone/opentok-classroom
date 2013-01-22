@@ -12,6 +12,7 @@ Meteor.Router.add({
   },
 
   '/classrooms/:roomId': function (roomId) {
+    Session.set("document_id", undefined);
     Session.set('roomClicked', roomId);
   },
 
