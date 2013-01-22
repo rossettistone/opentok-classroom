@@ -1,4 +1,6 @@
 Meteor.Router.add({
+  '': 'welcome',
+
   '/welcome': 'welcome',
 
   '/classrooms': function () {

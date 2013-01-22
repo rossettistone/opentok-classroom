@@ -1,5 +1,14 @@
 /* CSS declarations go here */
 
+.container-fluid{
+  padding-left: 0px;
+  padding-right: 60px;
+}
+
+.helpbar {
+  background-color: 
+}
+
 .publisherContainer {
   display: inline;
 }

@@ -52,14 +52,7 @@
 
 <template name="welcome">
   <div class="row-fluid span12">
-    <div class="span2">
-      <ul class="nav nav-list sidebar-nav-fixed">
-        <li class="active"><a href="#"><i class="icon-home icon-white"></i> Welcome</a></li>
-        <li><a href="#"><i class="icon-pencil"></i> What is OpenTok Classrooms?</a></li>
-        <li><a href="#"><i class="i"></i> How does it work?</a></li>
-      </ul>
-    </div>
-    <div class="span10">
+    <div class="span9">
       <div class="hero-unit">
         <img class="hero-image pull-right" src="chalkboard-map.jpg" />
         <h1>Learn. Teach.</h1>
@@ -75,34 +68,41 @@
       </div>
       {{> about}}
     </div>
+    <div class="span3">
+      <div class="alert-info well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header">How To Begin</li>
+          <li><p>Helpful advice on how the current page works.</p></li>
+          <li class="nav-header">Next Steps</li>
+          <li><p>Some suggestions on where to go next.</p></li>
+          <li class="nav-header">Need Help?</li>
+          <li><p>Something feel broken? Contact us on twitter at @rossetti211, and we'll see what we can do to help.</p></li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
   </div>
 </template>
 
 <template name="about">
-  <section>
-    <h3>What is OpenTok Classrooms?</h3>
-    <h5>Students</h5>
-    <p>OpenTok Classrooms is a way for students around the world to find and study with the best teachers available. Want to learn a foreign language? Get a foreign teacher! Want to discuss Russian politics? Speak with a Russian!</p>
+  <div class="row-fluid">
+    <div class="span6">
+      <h2>What is OpenTok Classrooms?</h2>
+      <p>OpenTok Classrooms is a way for students around the world to find and study with the best teachers available. Want to learn a foreign language? Get a foreign teacher! Want to discuss Russian politics? Speak with a Russian!</p>
+      <p>Whatever your special skill or knowledge, there are people out there looking to learn. OpenTok classrooms gives you the tools to attract students and teach remotely.</p>
 
-    <h5>Teachers</h5>
-    <p>Whatever your special skill or knowledge, there are people out there looking to learn. OpenTok classrooms gives you the tools to attract students and teach remotely.</p>
-
-    <h5>Classrooms come ready with:</h5>
+      <h5>Classrooms come ready with:</h5>
       <ul>
         <li>Video chat</li>
         <li>Interactive documents that you and the teacher can edit collaboratively</li>
       </ul>
-  </section>
-  <section>
-    <h3>How does it work?</h3>
-    <h5>Students</h5>
-    Create an account to check out the current class listings, then contact teachers for subjects that interest you. Pick a time to meet online, then show up for class and start learning!
-    <p></p>
-    <h5>Teachers</h5>
-    <p>It takes just a few clicks to set up your very own classroom. Arrange a time to meet with students, then log on at the same time to study!</p>
-    <br>
-    <br>
-  </section>
+    </div><!--/span-->
+    <div class="span6">
+      <h2>How does it work?</h2>
+      <p>Create an account to check out the current class listings, then contact teachers for subjects that interest you. Pick a time to meet online, then show up for class and start learning!</p>
+      <h5>Teachers</h5>
+      <p>Whatever your special skill or knowledge, there are people out there looking to learn. OpenTok classrooms gives you the tools to attract students and teach remotely.</p>
+    </div><!--/span-->
+  </div><!--/row-->
 </template>
 
 <template name="footer">
