@@ -4,17 +4,17 @@ body {
   background-image: url('/background-noise.png');
 }
 
+.brandfont {
+  font-family: 'Kaushan Script', cursive;
+}
+
 .long {
-  height: 500px;
+  height: 350px;
 }
 
 .container-fluid{
   padding-left: 0px;
   padding-right: 60px;
-}
-
-.helpbar {
-  background-color: 
 }
 
 .publisherContainer {

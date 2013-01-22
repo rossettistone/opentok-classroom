@@ -1,5 +1,6 @@
 <head>
-  <title>opentok-classroom</title>
+  <title>Learni.ca Classrooms</title>
+  <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -33,7 +34,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <ul class="nav">
-        <a class="brand" href="/welcome">Opentok Classrooms</a>
+        <a class="brand brandfont" href="/welcome">Learni.ca Classrooms</a>
         {{#if currentUser}}
           <li>
             <a href="/classrooms"><i class="icon-list"></i> Classrooms</a>
@@ -63,14 +64,11 @@
     <div class="span9">
       <div class="hero-unit">
         <img class="hero-image pull-right" src="chalkboard-map.jpg" />
-        <h1>Learn. Teach.</h1>
+        <h1 class="brandfont">Learn. Teach.</h1>
         <p>From anyone. To anyone. Anywhere in the world.</p>
         <p>
-          <a class="btn btn-primary btn-large">
+          <a class="btn btn-primary btn-large signup">
             Sign Up <small>(free!)</small>
-          </a>
-          <a class="btn">
-            Learn more
           </a>
         </p>
       </div>
@@ -94,9 +92,8 @@
 <template name="about">
   <div class="row-fluid">
     <div class="span6 well long">
-      <h2>What is OpenTok Classrooms?</h2>
-      <p>OpenTok Classrooms is a way for students around the world to find and study with the best teachers available. Want to learn a foreign language? Get a foreign teacher! Want to discuss Russian politics? Speak with a Russian!</p>
-      <p>Whatever your special skill or knowledge, there are people out there looking to learn. OpenTok classrooms gives you the tools to attract students and teach remotely.</p>
+      <h2 class="brandfont">What is Learnica?</h2>
+      <p>Learnica is a way for students around the world to find and study with the best teachers available. Want to learn a foreign language? Get a foreign teacher! Want to discuss Russian politics? Speak with a Russian!</p>
 
       <h5>Classrooms come ready with:</h5>
       <ul>
@@ -105,10 +102,10 @@
       </ul>
     </div><!--/span-->
     <div class="span6 well long">
-      <h2>How does it work?</h2>
+      <h2 class="brandfont">How does it work?</h2>
       <p>Create an account to check out the current class listings, then contact teachers for subjects that interest you. Pick a time to meet online, then show up for class and start learning!</p>
       <h5>Teachers</h5>
-      <p>Whatever your special skill or knowledge, there are people out there looking to learn. OpenTok classrooms gives you the tools to attract students and teach remotely.</p>
+      <p>Whatever your special skill or knowledge, there are people out there looking to learn. Learnica classrooms gives you the tools to attract students and teach remotely.</p>
     </div><!--/span-->
   </div><!--/row-->
 </template>
@@ -128,7 +125,7 @@
 
 <template name="classrooms">
   <div class="span9 well">
-    <h3>Available Classes</h3>
+    <h3 class="brandfont">Available Classes</h3>
     <table class="table table-hover">
       <thead>
         <tr>
@@ -156,10 +153,10 @@
   <div class="span3">
     <div class="alert-info well sidebar-nav">
       <ul class="nav nav-list">
-        <li class="nav-header">How To Begin</li>
-        <li><p>Helpful advice on how the current page works.</p></li>
-        <li class="nav-header">Next Steps</li>
-        <li><p>Some suggestions on where to go next.</p></li>
+        <li class="nav-header">Students</li>
+        <li><p>Enter a classroom by clicking on a class title.</p></li>
+        <li class="nav-header">Teachers</li>
+        <li><p>Instructions for teachers here.</p></li>
         <li class="nav-header">Need Help?</li>
         <li><p>Something feel broken? Contact us on twitter at @rossetti211, and we'll see what we can do to help.</p></li>
       </ul>
@@ -170,8 +167,8 @@
 <template name="newclassform">
   <div>
     <form>
-      <input id="roomname" type="text"></textarea>
-      <input class="btn btn-primary" type="button" value="Submit"></input>
+      <input id="roomname" type="text" placeholder="New classroom name" ></textarea>
+      <input class="btn btn-primary" type="button" value="Create New Classroom"></input>
     </form>
   </div>
 </template>

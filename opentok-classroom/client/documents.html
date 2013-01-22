@@ -21,7 +21,9 @@
   <li class="document {{selected}}">
     <a id="edit-document">
     <i class="icon-file"></i> {{ name }}
-    <input class="btn-link" type="button" id="delete-document" value="X"/>
+    {{#if isTeacher}}
+      <input class="btn-link" type="button" id="delete-document" value="X"/>
+    {{/if}}
     </a>
   </li>
 </template>

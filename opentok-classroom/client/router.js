@@ -3,7 +3,7 @@ Meteor.Router.add({
 
   '/welcome': function () {
     Session.set('roomClicked', undefined);
-    return 'welcome'
+    return 'welcome';
   },
 
   '/classrooms': function () {

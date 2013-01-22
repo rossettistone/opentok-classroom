@@ -26,6 +26,13 @@ Template.container.inClass = function () {
   return Session.get('roomClicked');
 };
 
+Template.welcome.events({
+  'click .signup' : function () {
+    console.log("fired")
+    $("#login-sign-in-link")[0].click();
+  }
+});
+
 Template.newclassform.events({
   'click input.btn' : function () {
     var username = Meteor.user().username;
@@ -45,14 +52,14 @@ Template.navbar.events({
     Session.set('openProfile', true);
   },
   'click .setstudent' : function () {
-    Meteor.call('setRole', 'student');
+    Meteor.call('setRole', Meteor.userId(), 'student');
     Session.set('changesSaved', true);
     Meteor.setTimeout(function () {
       Session.set('changesSaved', false);
     }, 5 * 1000);
   },
   'click .setteacher' : function () {
-    Meteor.call('setRole', 'teacher');
+    Meteor.call('setRole', Meteor.userId(), 'teacher');
     Session.set('changesSaved', true);
     Meteor.setTimeout(function () {
       Session.set('changesSaved', false);
