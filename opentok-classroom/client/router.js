@@ -1,7 +1,10 @@
 Meteor.Router.add({
   '': 'welcome',
 
-  '/welcome': 'welcome',
+  '/welcome': function () {
+    Session.set('roomClicked', undefined);
+    return 'welcome'
+  },
 
   '/classrooms': function () {
     Session.set('roomClicked', undefined);
