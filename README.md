@@ -2,8 +2,8 @@ Opentok Classroom
 =================
 
 An online classroom environment for teaching and tutoring remotely. Includes:
-* Collaborative documents: Built using Meteor's native reactivity
-* Video chat: Built with the OpenTok API
+* Collaborative documents: Students and teachers can create and simultaneously edit text files. These are saved as part of the classroom, so subsequent class sessions can use the same files.
+* Video chat: Built-in video chat makes student-teacher interaction feel natural. As long as they have a webcam, users are logged into a video session automatically upon entering a classroom.
 
 ### Installation ###
 
@@ -16,11 +16,36 @@ If you encounter problems, refer to www.meteor.com.
 You'll also need Meteorite, a community-developed package manager for Meteor. This can be installed easily using npm:
 
     npm install -g meteorite
-  
+
+Clone the repo to an empty directory, then start the Meteor server by typing:
+
+    mrt
+
+(This is actually the Meteorite command, but mrt commands are generally thin wrappers around the original 'meteor' commands).
 
 ### Usage ###
 
+Teachers and students have slightly different controls throughout the site. Generally speaking, teachers are able to create and destroy things (rooms, documents), while students can only read and edit.
 
+All users are given the 'student' role upon account creation. This can be freely changed to 'teacher' in the Profile settings, accessible through the top navbar.
+
+### Under the Hood ###
+
+Planning to add some features of your own? Checkout DEVELOPERS.md before you start!
+
+##### Video
+
+Built with the OpenTok API.
+
+At present, all users are logged into a single chat session. As a result, using multiple classrooms at the same time will cause all students and teachers to see and hear each other.
+
+##### Collaborative Documents
+
+Meteor is inherently 'reactive', meaning that updates to databases or other stored variables are rapidly propagated to the server and all clients, and templates are rerendered based on these changes. Each time a user finishes pressing a key (i.e. 'keyup' event), the contents of the document is saved to a client-side database. Meteor then takes care of pushing those changes to the server and distributing them to other clients.
+
+Because this approach does not involve operational transforms, it may be possible for users to run into problems if editing the exact same piece of text at the same moment.
+
+Documents are stored on a per-room basis, and are persistently saved in a server-side database.
 
 ### Credits ###
 
