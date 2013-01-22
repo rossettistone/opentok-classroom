@@ -1,7 +1,7 @@
 <template name="classroom">
   {{#if activeRoom}}
     <div class="row-fluid">
-      <div class="span7">
+      <div class="span7 well">
         {{> documents}}
         <input class="pull-left btn btn-danger leaveroom" type="button" value="Leave Classroom"></input>
         {{#if isTeacher}}

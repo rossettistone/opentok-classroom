@@ -38,8 +38,16 @@
           <li>
             <a href="/classrooms"><i class="icon-list"></i> Classrooms</a>
           </li>
-          <li>
-            <a id="profilebutton" ><i class="icon-user"></i> My Account</a>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-user"></i> Account<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="setstudent">Student Mode</a></li>
+              <li><a class="setteacher">Teacher Mode</a></li>
+              <li class="divider"></li>
+              <li><a id="profilebutton">Show Full Profile</a></li>
+            </ul>
           </li>
         {{/if}}
       </ul>
@@ -85,7 +93,7 @@
 
 <template name="about">
   <div class="row-fluid">
-    <div class="span6">
+    <div class="span6 well long">
       <h2>What is OpenTok Classrooms?</h2>
       <p>OpenTok Classrooms is a way for students around the world to find and study with the best teachers available. Want to learn a foreign language? Get a foreign teacher! Want to discuss Russian politics? Speak with a Russian!</p>
       <p>Whatever your special skill or knowledge, there are people out there looking to learn. OpenTok classrooms gives you the tools to attract students and teach remotely.</p>
@@ -96,7 +104,7 @@
         <li>Interactive documents that you and the teacher can edit collaboratively</li>
       </ul>
     </div><!--/span-->
-    <div class="span6">
+    <div class="span6 well long">
       <h2>How does it work?</h2>
       <p>Create an account to check out the current class listings, then contact teachers for subjects that interest you. Pick a time to meet online, then show up for class and start learning!</p>
       <h5>Teachers</h5>
@@ -110,7 +118,7 @@
     <div class="navbar navbar-fixed-bottom">
     <div class="navbar-inner">
       <ul class="nav pull-right">
-        <li><a href="">About</a></li>
+        <li><a href="http://www.github.com/rossetti211/opentok-classroom">Source Code</a></li>
         <li><a href="http://www.markarossetti.com" >Built by Mark Rossetti</a></li>
       </ul>
     </div>
@@ -119,7 +127,7 @@
 </template>
 
 <template name="classrooms">
-  <div class="span9">
+  <div class="span9 well">
     <h3>Available Classes</h3>
     <table class="table table-hover">
       <thead>

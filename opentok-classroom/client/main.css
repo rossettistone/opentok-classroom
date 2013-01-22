@@ -1,7 +1,11 @@
 /* CSS declarations go here */
 
 body {
-  background-image: url('/public/background-noise.png');
+  background-image: url('/background-noise.png');
+}
+
+.long {
+  height: 500px;
 }
 
 .container-fluid{
