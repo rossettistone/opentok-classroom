@@ -5,8 +5,13 @@ Handlebars.registerHelper("autoConnect", function() {
   }, 1 * 1000);
 });
 
-Template.classroom.activeRoom = function () {
-  return (Session.get('roomClicked') === this._id);
+Template.classroom.currentRoom = function () {
+  return (Session.get('currentRoom') === this._id);
+};
+
+Template.classroom.currentRoomContext = function () {
+  var stuff = Classrooms.findOne({_id: Session.get('currentRoom')});
+  return stuff;
 };
 
 Template.chatinput.events({
@@ -20,7 +25,6 @@ Template.chatinput.events({
 
 Template.classroom.events({
   'click input.leaveroom' : function () {
-    Session.set('roomClicked', undefined);
     Meteor.Router.to('/classrooms')
   }
 });

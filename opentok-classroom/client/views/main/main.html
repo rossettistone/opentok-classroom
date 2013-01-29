@@ -18,11 +18,6 @@
         {{> profile}}
       {{/if}}
       {{renderPage}}
-      {{#if inClass}}
-        {{#each classrooms}}
-          {{> classroom}}
-        {{/each}}
-      {{/if}}
     </div>
     {{> footer}}
   </div>
@@ -144,7 +139,7 @@
       <tbody>
       {{#each classrooms}}
         <tr>
-          <td><a class="classname" href='' >{{name}}</a></td>
+          <td><a class="classname" href="/classrooms/{{_id}}" >{{name}}</a></td>
           <td><small><a class="ownername" href='' >{{owner}}</a></small></td>
           <td>5</td>
           <td>Open</td>

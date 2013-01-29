@@ -1,7 +1,8 @@
 <template name="classroom">
-  {{#if activeRoom}}
+  {{#with currentRoomContext}}
     <div class="row-fluid">
       <div class="span7 well">
+        <h5>{{name}}</h5>
         {{> documents}}
         <input class="pull-left btn btn-danger leaveroom" type="button" value="Leave Classroom"></input>
         {{#if isTeacher}}
@@ -25,7 +26,7 @@
         </div><!--/.well -->
       </div>
     <div>
-  {{/if}}
+  {{/with}}
 </template>
 
 <template name="teacherDashboard">
