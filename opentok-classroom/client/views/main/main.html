@@ -1,0 +1,193 @@
+<head>
+  <title>Learni.ca Classrooms</title>
+  <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  {{> container}}
+</body>
+
+<template name="container">
+  <div class="container-fluid">
+    <div class="content">
+      {{> navbar}}
+      {{#if recentSave}}
+        <div class="alert-success well well-small">Changes saved!</div>
+      {{/if}}
+      {{#if openProfile}}
+        {{> profile}}
+      {{/if}}
+      {{renderPage}}
+      {{#if currentUser}}
+        {{#if inClass}}
+          {{#each classrooms}}
+            {{> classroom}}
+          {{/each}}
+        {{/if}}
+      {{/if}}
+    </div>
+    {{> footer}}
+  </div>
+</template>
+
+<template name="navbar">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <a class="brand brandfont" href="/welcome">Learni.ca Classrooms</a>
+        {{#if currentUser}}
+          <li>
+            <a href="/classrooms"><i class="icon-list"></i> Classrooms</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="icon-user"></i> Account<b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="setstudent">Student Mode</a></li>
+              <li><a class="setteacher">Teacher Mode</a></li>
+              <li class="divider"></li>
+              <li><a id="profilebutton">Show Full Profile</a></li>
+            </ul>
+          </li>
+        {{/if}}
+      </ul>
+      <a class="btn btn-link pull-right">
+        {{loginButtons align="right"}}
+      </a>
+    </div>
+  </div>
+</template>
+
+<template name="welcome">
+  <div class="row-fluid">
+    <div class="span9">
+      <div class="hero-unit">
+        <img class="hero-image pull-right" src="chalkboard-map.jpg" />
+        <h1 class="brandfont">Learn. Teach.</h1>
+        <p>From anyone. To anyone. Anywhere in the world.</p>
+        <p>
+          {{#unless currentUser}}
+          <a class="btn btn-primary btn-large signup">
+            Sign Up <small>(free!)</small>
+          </a>
+          {{/unless}}
+          {{#if currentUser}}
+          <a class="btn btn-primary btn-large gotoclass">
+            See Classrooms
+          </a>
+          {{/if}}
+        </p>
+      </div>
+      {{> about}}
+    </div>
+    <div class="span3">
+      <div class="alert-info well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header">How To Begin</li>
+          <li><p>Create an account by clicking on the 'Sign In' button above.</p>
+            <p>Your new account will start as a 'student', but you can switch to 'teacher' mode by clicking on the 'Account' button on the navbar after you sign in.</p></li>
+          <li class="nav-header">Next Steps</li>
+          <li><p>Once you have an account, you'll be able to view available classes and begin learning. If you switch to 'teacher' mode ('Account' button on navbar), you can create classes for others to attend.</p></li>
+          <li class="nav-header">Need Help?</li>
+          <li><p>Something feel broken? Contact us on twitter at @rossetti211, and we'll see what we can do to help.</p></li>
+        </ul>
+      </div><!--/.well -->
+    </div><!--/span-->
+  </div>
+</template>
+
+<template name="about">
+  <div class="row-fluid">
+    <div class="span6 well long">
+      <h2 class="brandfont">What is Learnica?</h2>
+      <p>Learnica is a way for students around the world to find and study with the best teachers available. Want to learn a foreign language? Get a foreign teacher! Want to discuss Russian politics? Speak with a Russian!</p>
+
+      <h5>Classrooms come ready with:</h5>
+      <ul>
+        <li>Video chat</li>
+        <li>Interactive documents that you and the teacher can edit collaboratively</li>
+      </ul>
+    </div><!--/span-->
+    <div class="span6 well long">
+      <h2 class="brandfont">How does it work?</h2>
+      <p>Create an account to check out the current class listings, then contact teachers for subjects that interest you. Pick a time to meet online, then show up for class and start learning!</p>
+      <h5>Teachers</h5>
+      <p>Whatever your special skill or knowledge, there are people out there looking to learn. Learnica classrooms gives you the tools to attract students and teach remotely.</p>
+    </div><!--/span-->
+  </div><!--/row-->
+</template>
+
+<template name="footer">
+  <footer class="row-fluid">
+    <div class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner">
+      <ul class="nav pull-right">
+        <li><a href="http://www.github.com/rossetti211/opentok-classroom">Source Code</a></li>
+        <li><a href="http://www.markarossetti.com" >Built by Mark Rossetti</a></li>
+      </ul>
+    </div>
+  </div>
+  </footer>
+</template>
+
+<template name="classrooms">
+  <div class="span9 well">
+    <h3 class="brandfont">Available Classes</h3>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Class Name</th>
+          <th>Teacher Name</th>
+          <th>Students Signed Up</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{#each classrooms}}
+        <tr>
+          <td><a class="classname" href='' >{{name}}</a></td>
+          <td><small><a class="ownername" href='' >{{owner}}</a></small></td>
+          <td>5</td>
+          <td>Open</td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+    {{#if isTeacher}}
+      {{> newclassform}}
+    {{/if}}
+  </div>
+  <div class="span3">
+    <div class="alert-info well sidebar-nav">
+      <ul class="nav nav-list">
+        <li class="nav-header">Students</li>
+        <li><p>Enter a classroom by clicking on a class title.</p></li>
+        <li class="nav-header">Teachers</li>
+        <li><p>Use the 'Create New Classroom' input area to make a new room with you as the teacher.</p></li>
+        <li class="nav-header">Need Help?</li>
+        <li><p>Something feel broken? Contact us on twitter at @rossetti211, and we'll see what we can do to help.</p></li>
+      </ul>
+    </div><!--/.well -->
+  </div><!--/span-->
+</template>
+
+<template name="newclassform">
+  <div>
+    <form>
+      <input id="roomname" type="text" placeholder="New classroom name" ></textarea>
+      <input class="btn btn-primary" type="button" value="Create New Classroom"></input>
+    </form>
+  </div>
+</template>
+
+<template name="not_found">
+  <div class="hero-unit">
+    <img class="hero-image pull-right" src="chalkboard-map.jpg" />
+    <h1>404</h1>
+    <p>You have ventured into the wilds of the internet.</p>
+    <p>It is pitch black. You are likely to be eaten by a grue.</p>
+    <small>Seriously, though, it seems we couldn't find what you were looking for.</small>
+  </div>
+</template>
+

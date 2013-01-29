@@ -1,0 +1,39 @@
+<template name="documents">
+  {{> documentList}}
+  <hr>
+  {{> documentView}}
+</template>
+
+<template name="documentList">
+  <ul class="nav nav-tabs">
+    {{#each documents}}
+      {{> document}}
+    {{/each}}
+    {{#if isTeacher}}
+      <li id="createDocument" class="pull-right">
+        <input class="navbar-form" type="text" id="new-document-name" placeholder="New document" /><input class="btn btn-mini" type="button" id="new-document" value="Create Doc"/>
+      </li>
+    {{/if}}
+  </ul>
+</template>
+
+<template name="document">
+  <li class="document {{selected}}">
+    <a id="edit-document">
+    <i class="icon-file"></i> {{ name }}
+    {{#if isTeacher}}
+      <input class="btn-link" type="button" id="delete-document" value="X"/>
+    {{/if}}
+    </a>
+  </li>
+</template>
+
+<template name="documentView">
+  {{#if selectedDocument}}
+  {{#with selectedDocument}}
+    <div>
+      <textarea id="document-text" class="span12 documentbox">{{ text }}</textarea>
+    </div>
+   {{/with}}
+   {{/if}}
+</template>
