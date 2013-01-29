@@ -1,5 +1,8 @@
 Meteor.Router.add({
-  '': 'welcome',
+  '': function () {
+    Session.set('roomClicked', undefined);
+    return 'welcome';
+  },
 
   '/welcome': function () {
     Session.set('roomClicked', undefined);
@@ -21,4 +24,18 @@ Meteor.Router.add({
   },
 
   '*': 'not_found'
+});
+
+Meteor.Router.filter('checkLoggedIn', {except: ['welcome'] });
+
+Meteor.Router.filters({
+  'checkLoggedIn': function(page) {
+    if (Meteor.loggingIn()) {
+      return 'loading';
+    } else if (Meteor.user()) {
+      return page;
+    } else {
+      return 'signin';
+    }
+  }
 });

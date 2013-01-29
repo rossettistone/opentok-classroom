@@ -18,12 +18,10 @@
         {{> profile}}
       {{/if}}
       {{renderPage}}
-      {{#if currentUser}}
-        {{#if inClass}}
-          {{#each classrooms}}
-            {{> classroom}}
-          {{/each}}
-        {{/if}}
+      {{#if inClass}}
+        {{#each classrooms}}
+          {{> classroom}}
+        {{/each}}
       {{/if}}
     </div>
     {{> footer}}
@@ -178,6 +176,12 @@
       <input id="roomname" type="text" placeholder="New classroom name" ></textarea>
       <input class="btn btn-primary" type="button" value="Create New Classroom"></input>
     </form>
+  </div>
+</template>
+
+<template name="signin">
+  <div class="well alert-info">
+    <h3>Please sign in or create an account by clicking on the "Sign In" button in the upper right corner of the window!</h3>
   </div>
 </template>
 
