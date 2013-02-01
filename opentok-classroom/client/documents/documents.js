@@ -20,7 +20,7 @@ Template.document.events({
     return Documents.remove(this._id);
   },
   'click #edit-document': function (e) {
-    return Meteor.Router.to(this._id);
+    Session.set('document_id', this._id);
   }
 });
 

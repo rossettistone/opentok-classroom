@@ -1,7 +1,4 @@
 Meteor.startup(function () {
-  var require = __meteor_bootstrap__.require
-  Future = require('fibers/future');
-
   var allUsers = Meteor.users.find({}).fetch()
   _.each(allUsers, function (user, key, object) {
     if(!user.role) {

@@ -17,10 +17,6 @@ Meteor.Router.add({
     return 'classroom';
   },
 
-  '/classrooms/:roomId/:document_id': function (document_id) {
-    Session.set("document_id", document_id);
-  },
-
   '*': 'not_found'
 });
 
