@@ -12,3 +12,4 @@ accounts-password
 moment
 stripe
 router
+http
