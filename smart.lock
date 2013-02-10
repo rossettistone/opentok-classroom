@@ -9,7 +9,8 @@
       "moment": {},
       "node-modules": {},
       "stripe": {},
-      "router": {}
+      "router": {},
+      "mocha-web": {}
     },
     "packages": {
       "moment": {
@@ -31,6 +32,11 @@
         "git": "https://github.com/tmeasday/meteor-router.git",
         "tag": "v0.3.5",
         "commit": "e8e63db2411204f0a6589b74dd591babbfb2da1a"
+      },
+      "mocha-web": {
+        "git": "https://github.com/mad-eye/meteor-mocha-web.git",
+        "tag": "v0.0.1",
+        "commit": "1edfc84969fcdd3edc05c4a31668199276594ab5"
       },
       "page-js": {
         "git": "https://github.com/tmeasday/meteor-page-js.git",

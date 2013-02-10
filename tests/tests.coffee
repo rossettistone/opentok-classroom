@@ -1,6 +1,9 @@
+# run tests at the command line with:
+# $ METEOR_MOCHA_TEST_DIR=tests mrt
+
 describe 'Meteor client-side code', ->
 
-  dummyroom = 
+  dummyroom =
     _id: 789
 
   beforeEach ->

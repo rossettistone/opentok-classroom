@@ -3,6 +3,7 @@
     "moment": {},
     "node-modules": {},
     "stripe": {},
-    "router": {}
+    "router": {},
+    "mocha-web": {}
   }
 }

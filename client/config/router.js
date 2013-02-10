@@ -17,6 +17,8 @@ Meteor.Router.add({
     return 'classroom';
   },
 
+  '/tests': 'tests',
+
   '*': 'not_found'
 });
 
