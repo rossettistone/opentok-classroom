@@ -25,8 +25,8 @@ Clone the repo to an empty directory, then start the Meteor server by typing:
 
 ### Running the Tests ###
 
-Tests have been implemented with meteor-mocha-web. To view the tests, start the server by typing:
-    $ METEOR_MOCHA_TEST_DIR=tests mrt
+Tests have been implemented with meteor-mocha-web. To view the tests, start the server at the command line by typing:
+    `$ METEOR_MOCHA_TEST_DIR=tests mrt`
     
 You can then view the tests by going to `localhost:3000/tests`
 
