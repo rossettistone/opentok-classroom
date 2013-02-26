@@ -8,6 +8,9 @@
 </body>
 
 <template name="container">
+  {{#unless hidelightbox}}
+    {{> demolightbox}}
+  {{/unless}}
   <div class="container-fluid">
     <div class="content">
       {{> navbar}}
@@ -56,9 +59,6 @@
 </template>
 
 <template name="welcome">
-  {{#unless hidelightbox}}
-    {{> demolightbox}}
-  {{/unless}}
   <div class="row-fluid">
     <div class="span9">
       <div class="hero-unit">
