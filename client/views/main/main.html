@@ -131,44 +131,46 @@
 </template>
 
 <template name="classrooms">
-  <div class="span9 well">
-    <h3 class="brandfont">Available Classes</h3>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Class Name</th>
-          <th>Teacher Name</th>
-          <th>Students Signed Up</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-      {{#each classrooms}}
-        <tr>
-          <td><a class="classname" href="/classrooms/{{_id}}" >{{name}}</a></td>
-          <td><small><a class="ownername" href='' >{{owner}}</a></small></td>
-          <td>5</td>
-          <td>Open</td>
-        </tr>
-      {{/each}}
-      </tbody>
-    </table>
-    {{#if isTeacher}}
-      {{> newclassform}}
-    {{/if}}
+  <div class="row-fluid">
+    <div class="span9 well">
+      <h3 class="brandfont">Available Classes</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Class Name</th>
+            <th>Teacher Name</th>
+            <th>Students Signed Up</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        {{#each classrooms}}
+          <tr>
+            <td><a class="classname" href="/classrooms/{{_id}}" >{{name}}</a></td>
+            <td><small><a class="ownername" href='' >{{owner}}</a></small></td>
+            <td>5</td>
+            <td>Open</td>
+          </tr>
+        {{/each}}
+        </tbody>
+      </table>
+      {{#if isTeacher}}
+        {{> newclassform}}
+      {{/if}}
+    </div>
+    <div class="span3">
+      <div class="alert-info well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header">Students</li>
+          <li><p>Enter a classroom by clicking on a class title.</p></li>
+          <li class="nav-header">Teachers</li>
+          <li><p>Use the 'Create New Classroom' input area to make a new room with you as the teacher.</p></li>
+          <li class="nav-header">Need Help?</li>
+          <li><p>Something feel broken? Contact us on twitter at @rossetti211, and we'll see what we can do to help.</p></li>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="span3">
-    <div class="alert-info well sidebar-nav">
-      <ul class="nav nav-list">
-        <li class="nav-header">Students</li>
-        <li><p>Enter a classroom by clicking on a class title.</p></li>
-        <li class="nav-header">Teachers</li>
-        <li><p>Use the 'Create New Classroom' input area to make a new room with you as the teacher.</p></li>
-        <li class="nav-header">Need Help?</li>
-        <li><p>Something feel broken? Contact us on twitter at @rossetti211, and we'll see what we can do to help.</p></li>
-      </ul>
-    </div><!--/.well -->
-  </div><!--/span-->
 </template>
 
 <template name="newclassform">
