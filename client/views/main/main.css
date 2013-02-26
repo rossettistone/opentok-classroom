@@ -59,7 +59,7 @@ body {
 
 .videobox {
   min-height: 300px;
-  min-width: 400px
+  min-width: 400px;
 }
 
 div.OT_video-container {
@@ -74,4 +74,31 @@ div.OT_video-container {
 
 .selected:hover {
   background-color: inherit;
+}
+
+.lightbox-bg {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+.lightbox-fg {
+  position: absolute;
+  height: 50%;
+  width: 50%;
+  top: 20%;
+  left: 25%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 2;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.lightbox-fg button {
+  display: block;
+  margin: 0 auto;
 }

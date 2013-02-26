@@ -43,6 +43,9 @@
               <li><a id="profilebutton">Show Full Profile</a></li>
             </ul>
           </li>
+          <li>
+            <a class="instructions"><i class="icon-info-sign"></i> Instructions</a>
+          </li>
         {{/if}}
       </ul>
       <a class="btn btn-link pull-right">
@@ -53,6 +56,9 @@
 </template>
 
 <template name="welcome">
+  {{#unless hidelightbox}}
+    {{> demolightbox}}
+  {{/unless}}
   <div class="row-fluid">
     <div class="span9">
       <div class="hero-unit">
@@ -187,6 +193,24 @@
     <p>You have ventured into the wilds of the internet.</p>
     <p>It is pitch black. You are likely to be eaten by a grue.</p>
     <small>Seriously, though, it seems we couldn't find what you were looking for.</small>
+  </div>
+</template>
+
+<template name="demolightbox">
+  <div class="lightbox-bg">
+    <div class="lightbox-fg">
+      <h5>Welcome!</h5>
+      <p>Thanks for taking the time to check out my work. This is an early prototype of an online classroom environment, created as a personal project over a few days at <a href="http://hackreactor.com/">Hack Reactor</a>. If you've got 2 minutes, here's what to check out:</p>
+      <ol>
+        <li><strong>Log in:</strong> Create a free, no-hassle account by clicking on the blue "Sign Up!" button. Don't worry, I won't use your information for anything other than logging into this site. In fact, feel free to provide fake info!</li>
+        <li><strong>Check out the classrooms:</strong> Click on 'Classrooms' and hop into one of the choices listed there.</li>
+        <li><strong>Try it with a friend (or two browser tabs):</strong> Video chat should start up when you enter a classroom, and the documents in the classroom can be edited collaboratively in real time.</li>
+      </ol>
+      <p><em>Extra credit:</em> You can change to 'teacher' mode by clicking on the 'Accounts' button on the top navbar. This will let you create and delete classrooms, as well as documents inside the each classroom.</p>
+
+      <small>If you want to check this out again later, just click on "Instructions" in the top navbar.</small>
+      <button class="btn btn-primary">OK!</button>
+    </div>
   </div>
 </template>
 

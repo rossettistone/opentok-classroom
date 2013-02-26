@@ -26,6 +26,12 @@ Template.container.inClass = function () {
   return Session.get('roomClicked');
 };
 
+Template.container.events({
+  'click .lightbox-bg': function () {
+    Session.set('hidelightbox', true);
+  }
+})
+
 Template.welcome.events({
   'click .signup' : function () {
     $("#login-sign-in-link")[0].click();
@@ -66,5 +72,12 @@ Template.navbar.events({
     Meteor.setTimeout(function () {
       Session.set('changesSaved', false);
     }, 5 * 1000);
+  },
+  'click .instructions': function () {
+    Session.set('hidelightbox', false);
   }
 });
+
+Template.container.hidelightbox = function () {
+  return Session.get('hidelightbox');
+};
